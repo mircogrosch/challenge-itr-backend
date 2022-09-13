@@ -13,9 +13,9 @@ const getBranches = async (req,res)=> {
         if(filtered.length) { 
             const orderByLocationProximity = filtered.sort(compareFunction)
             const response = orderByLocationProximity.map((client) => {
-                const {crmid,name, benefits,image, branches} = client
+                const {crmid,name, benefits,images, branches} = client
                 
-                return {crmid,name,image,branches: branches[0],benefits} 
+                return {crmid,name,images,branches: branches[0],benefits} 
             })
            return res.status(200).json(pagination(response,page))
         }

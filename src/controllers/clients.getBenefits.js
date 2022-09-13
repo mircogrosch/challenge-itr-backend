@@ -14,8 +14,8 @@ const getBenefits = async (req,res)=> {
         if(filtered.length){ 
             const orderByNameDescending = filtered.sort(compareFunctionToSortByName)
             const response = orderByNameDescending.map((client)=> {
-                const {crmid,name,image} = client
-                return {crmid,name,image}
+                const {crmid,name,images} = client
+                return {crmid,name,images}
             })
            return res.status(200).json(pagination(response,page))
         }
